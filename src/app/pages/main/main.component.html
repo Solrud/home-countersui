@@ -1,0 +1,19 @@
+<section class="w-100">
+  <div class="container-my d-flex flex-column">
+    <div class="container-btns">
+      <button class="btn fw-bold add-counter-btn my-4">
+        Добавить показания счетчиков
+      </button>
+      <button class="fw-bold add-counter-btn my-4" [disabled]="true">
+        Редактировать показания счетчиков
+      </button>
+      <button class="fw-bold add-counter-btn my-4" [disabled]="true">
+        Удалить показания счетчиков
+      </button>
+    </div>
+    <div class="overflow-auto">
+      <app-table [fieldColumnList]="fieldColumnList"
+                 [dataTableSource]="dataTable"></app-table>
+    </div>
+  </div>
+</section>

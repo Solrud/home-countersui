@@ -1,0 +1,31 @@
+.add-counter-btn{
+  width: 200px;
+  height: 110px;
+  border-radius: 15px;
+  border: var(--main-color) 4px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0);
+}
+.container-btns{
+  display: flex;
+  gap: 3rem;
+}
+@media (max-width: 1300px){
+  .container-btns{
+    display: flex;
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+  }
+  .add-counter-btn{
+    width: auto;
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 375px){
+  .container-btns{
+    font-size: 12px;
+  }
+}

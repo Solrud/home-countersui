@@ -1,0 +1,35 @@
+<div *ngIf="fieldColumnList.length > 0"
+     class="overflow-auto" >
+  <table  *ngIf="isDataSourceFull()"
+  class="table table-bordered table-responsive table-sm overflow-auto" >
+    <thead class="sticky-top">
+    <tr class="sticky-top border-top-0">
+      <th class="text-nowrap"
+          *ngFor="let field of fieldColumnList">
+        <span>{{getNameField(field)}}</span>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container>
+      <tr *ngFor="let data of dataTableSource; index as i"
+          (click)="onSelectTableElement(data)"
+          [class.striped-con]="i % 2 == 0"
+          [class.active-element]="data?.id == selectedObject?.id">
+        <td *ngFor="let field of fieldColumnList">
+          <ng-container *ngIf="!data[field]">
+            <i class="bi bi-dash"></i>
+          </ng-container>
+          <ng-container *ngIf="field == 'date_create' || field == 'date_edit'">
+            <span class="text-capitalize">{{ data[field] | date: 'MMMM yyyy':':':'ru-RU'}}</span>
+          </ng-container>
+          <ng-container class="cell-config"
+                        *ngIf="data[field] && field != 'date_edit' && field != 'date_create'">
+            {{data[field]}}
+          </ng-container>
+        </td>
+      </tr>
+    </ng-container>
+    </tbody>
+  </table>
+</div>

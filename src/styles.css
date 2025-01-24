@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*@import "~bootstrap-icons/font/bootstrap-icons.css";*/
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   letter-spacing: normal; font-size: 14px}
+
+
+:root{
+  --container-width: 1300px;
+
+  --main-color: #78eebc;
+  --primary-color: #74d3ee;
+  --white-color: #fff;
+  --white-permanent-color: #fff;
+  --black-color: #000000;
+  --black-permanent-color: #000000;
+  --light-gray: #e7e8ea;
+}
+[data-theme='dark']{
+  --container-width: 1300px;
+
+  --main-color: #78eebc;
+  --primary-color: #74d3ee;
+  --third-color: #f1e4d6;
+  --white-color: #000000;
+  --white-permanent-color: #fff;
+  --black-color: #ffffff;
+  --black-permanent-color: #000000;
+  --light-gray: #e7e8ea;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.container-my{
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+button[disabled]{
+  border: #d0d9d0 4px solid !important;
+}

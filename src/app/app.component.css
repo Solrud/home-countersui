@@ -1,0 +1,20 @@
+.header-conf{
+  display: flex;
+  flex-direction: row;
+  background: var(--main-color);
+  /*height: 350px;*/
+  padding: 10px 10px;
+}
+
+.body-conf{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: #fcfcfc;
+}
+
+@media (max-width: 380px){
+  .header-conf{
+    /*height: 70px;*/
+  }
+}

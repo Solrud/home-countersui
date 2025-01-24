@@ -1,0 +1,9 @@
+thead {
+  --bs-table-bg-type: #75d38c;
+}
+.striped-con{
+  --bs-table-bg: #f5f5f5
+}
+.active-element{
+  --bs-table-bg-type: #b7efc6;
+}

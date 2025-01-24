@@ -1,0 +1,11 @@
+.container-header{
+
+}
+
+@media (max-width: 1300px){
+  .container-header{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+}
