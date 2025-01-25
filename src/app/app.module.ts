@@ -11,6 +11,9 @@ import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/h
 import {BaseUrlInterceptor} from "./shared/base-url/base-url.interceptor";
 import {registerLocaleData} from "@angular/common";
 import localeRu from '@angular/common/locales/ru';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { ShowSpinnerDirective } from './shared/spinner/show-spinner.directive';
+import {SpinnerInterceptor} from "./shared/spinner/spinner.interceptor";
 
 registerLocaleData(localeRu, 'ru-RU');
 
@@ -19,7 +22,9 @@ registerLocaleData(localeRu, 'ru-RU');
     AppComponent,
     MainComponent,
     HeaderComponent,
-    TableComponent
+    TableComponent,
+    SpinnerComponent,
+    ShowSpinnerDirective
   ],
   imports: [
     BrowserModule,
@@ -34,6 +39,11 @@ registerLocaleData(localeRu, 'ru-RU');
       provide: HTTP_INTERCEPTORS,
       multi: true,
       useClass: BaseUrlInterceptor
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: SpinnerInterceptor
     },
     {
       provide: LOCALE_ID,
