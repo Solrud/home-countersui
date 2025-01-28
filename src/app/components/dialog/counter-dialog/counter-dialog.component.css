@@ -1,0 +1,25 @@
+.modal-header{
+  background-color: var(--main-color);
+}
+.modal-content{
+  border: 0;
+}
+.border-dark {
+  border: var(--main-color) 2px solid !important;
+  border-color: var(--main-color) !important;
+}
+.form-control{
+  border-radius: 0 !important;
+}
+
+.sum-water-container{
+  padding: 1rem;
+  background-color: #d3ecff;
+}
+
+.p-0-my{
+  padding: 0 !important;
+}
+/*.mh-100vh{*/
+/*  max-height: 71vh;*/
+/*}*/

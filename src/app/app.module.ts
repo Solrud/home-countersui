@@ -14,6 +14,10 @@ import localeRu from '@angular/common/locales/ru';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { ShowSpinnerDirective } from './shared/spinner/show-spinner.directive';
 import {SpinnerInterceptor} from "./shared/spinner/spinner.interceptor";
+import { CounterDialogComponent } from './components/dialog/counter-dialog/counter-dialog.component';
+import {NgbDatepickerModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 registerLocaleData(localeRu, 'ru-RU');
 
@@ -24,11 +28,17 @@ registerLocaleData(localeRu, 'ru-RU');
     HeaderComponent,
     TableComponent,
     SpinnerComponent,
-    ShowSpinnerDirective
+    ShowSpinnerDirective,
+    CounterDialogComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    NgbDatepickerModule,
+    FormsModule,
+    NgbModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {

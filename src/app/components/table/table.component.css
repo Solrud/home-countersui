@@ -7,3 +7,9 @@ thead {
 .active-element{
   --bs-table-bg-type: #b7efc6;
 }
+
+
+.container-table{
+  overflow: auto;
+  max-height: 30vh;
+}

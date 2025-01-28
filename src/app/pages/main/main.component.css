@@ -12,6 +12,22 @@
   display: flex;
   gap: 3rem;
 }
+
+.container-for-table {
+  overflow: auto;
+  max-height: 60vh;
+}
+
+
+/*:host{*/
+/*  display: block;*/
+/*  background-image: url('src/assets/imgs/low opacity h-c logo.png');*/
+/*  background-size: cover;*/
+/*  background-position: center;*/
+/*  background-repeat: no-repeat;*/
+/*  position: relative;*/
+/*}*/
+
 @media (max-width: 1300px){
   .container-btns{
     display: flex;

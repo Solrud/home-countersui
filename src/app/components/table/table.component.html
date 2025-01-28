@@ -1,7 +1,7 @@
 <div *ngIf="fieldColumnList.length > 0"
      class="overflow-auto" >
   <table  *ngIf="isDataSourceFull()"
-  class="table table-bordered table-responsive table-sm overflow-auto" >
+  class="table table-bordered table-responsive table-sm " >
     <thead class="sticky-top">
     <tr class="sticky-top border-top-0">
       <th class="text-nowrap"
@@ -10,7 +10,7 @@
       </th>
     </tr>
     </thead>
-    <tbody>
+    <tbody class="">
     <ng-container>
       <tr *ngFor="let data of dataTableSource; index as i"
           (click)="onSelectTableElement(data)"
