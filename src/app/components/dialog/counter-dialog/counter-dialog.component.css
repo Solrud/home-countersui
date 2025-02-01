@@ -1,6 +1,13 @@
 .modal-header{
   background-color: var(--main-color);
 }
+.modal-body{
+  background-color: #fcfcfc;
+}
+.modal-footer{
+  background-color: var(--main-color);
+}
+
 .modal-content{
   border: 0;
 }
@@ -9,11 +16,11 @@
   border-color: var(--main-color) !important;
 }
 .form-control{
-  border-radius: 0 !important;
+  /*border-radius: 0 !important;*/
 }
 
 .sum-water-container{
-  padding: 1rem;
+  /*padding: 1rem;*/
   background-color: #d3ecff;
 }
 
@@ -23,3 +30,8 @@
 /*.mh-100vh{*/
 /*  max-height: 71vh;*/
 /*}*/
+
+
+button[disabled] {
+  border: 0 !important;
+}

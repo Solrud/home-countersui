@@ -1,4 +1,5 @@
 export class HomeCounterDTO {
+  id: number | null;
   counter_453372: number;
   counter_446716: number;
   counter_8385287: number;

@@ -1,6 +1,6 @@
 .add-counter-btn{
-  width: 200px;
-  height: 110px;
+  /*width: 200px;*/
+  /*height: 110px;*/
   border-radius: 15px;
   border: var(--main-color) 4px solid;
   display: flex;
@@ -18,7 +18,10 @@
   max-height: 60vh;
 }
 
-
+.btn-i{
+  width: 80px;
+  height: 80px;
+}
 /*:host{*/
 /*  display: block;*/
 /*  background-image: url('src/assets/imgs/low opacity h-c logo.png');*/
@@ -30,18 +33,26 @@
 
 @media (max-width: 1300px){
   .container-btns{
+    margin: 0 2rem;
+    justify-content: space-between;
     display: flex;
-    gap: 0.5rem;
-    padding: 0 0.5rem;
+    gap: 3rem;
   }
-  .add-counter-btn{
-    width: auto;
-    flex-grow: 1;
-  }
+
+  /*.container-btns{*/
+  /*  display: flex;*/
+  /*  gap: 0.5rem;*/
+  /*  padding: 0 0.5rem;*/
+  /*}*/
+  /*.add-counter-btn{*/
+  /*  width: auto;*/
+  /*  flex-grow: 1;*/
+  /*}*/
 }
 
-@media (max-width: 375px){
+@media (max-width: 475px){
   .container-btns{
     font-size: 12px;
+    gap: 1rem;
   }
 }

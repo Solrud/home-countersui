@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FIELD_NAME_OBJ} from "../../app.constant";
+import {SelectedCounter} from "../../data/model/selectedCounter";
+import {HomeCounterDTO} from "../../data/model/dto/implements/home-counter-dto";
 
 @Component({
   selector: 'app-table',
@@ -8,17 +10,16 @@ import {FIELD_NAME_OBJ} from "../../app.constant";
 })
 export class TableComponent {
   fieldColumnNameObject = FIELD_NAME_OBJ;
+  dataTableSource: any;
+  selectedObject: any;
 
   @Input()
   fieldColumnList = [];
   @Input()
-  dataTableSource: any;
-  @Input()
-  selectedObject: any;
-  // @Input()
-  // totalFoundedObjects: number;
-  // @Input()
-  // objectSearch: ABaseSearch;
+  set dataTableSourceSet(value: any){
+    this.dataTableSource = value;
+    this.selectedObject = null;
+  }
 
   @Output()
   selectedObjectOutput = new EventEmitter<any>();
@@ -34,9 +35,23 @@ export class TableComponent {
     return this.fieldColumnNameObject[field];
   }
 
-  onSelectTableElement(selectedElement: any){
-    this.selectedObject = this.selectedObject != selectedElement ? selectedElement : null;
+  onSelectTableElement(index: number): void{
+    const selectedElement = this.dataTableSource[index];
+    let previousElement = null;
+    if (this.dataTableSource[index + 1])
+      previousElement = this.dataTableSource[index + 1];
 
-    this.selectedObjectOutput.emit(this.selectedObject)
+    let selectedObj = new SelectedCounter();
+
+    if (this.selectedObject != selectedElement){
+      selectedObj.selectedCounter = selectedElement;
+      selectedObj.previousCounter = previousElement;
+      this.selectedObject = selectedElement;
+    } else {
+      this.selectedObject = null;
+      selectedObj = null;
+    }
+
+    this.selectedObjectOutput.emit(selectedObj);
   }
 }

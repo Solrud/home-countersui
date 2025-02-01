@@ -13,15 +13,18 @@
     <tbody class="">
     <ng-container>
       <tr *ngFor="let data of dataTableSource; index as i"
-          (click)="onSelectTableElement(data)"
+          (click)="onSelectTableElement(i)"
           [class.striped-con]="i % 2 == 0"
           [class.active-element]="data?.id == selectedObject?.id">
         <td *ngFor="let field of fieldColumnList">
           <ng-container *ngIf="!data[field]">
             <i class="bi bi-dash"></i>
           </ng-container>
-          <ng-container *ngIf="field == 'date_create' || field == 'date_edit'">
+          <ng-container *ngIf="field == 'date_create'">
             <span class="text-capitalize">{{ data[field] | date: 'MMMM yyyy':':':'ru-RU'}}</span>
+          </ng-container>
+          <ng-container *ngIf="field == 'date_edit'">
+            <span class="text-capitalize">{{ data[field] | date: 'dd MMMM yyyy':':':'ru-RU'}}</span>
           </ng-container>
           <ng-container class="cell-config"
                         *ngIf="data[field] && field != 'date_edit' && field != 'date_create'">

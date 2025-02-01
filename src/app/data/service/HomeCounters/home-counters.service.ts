@@ -12,4 +12,16 @@ export class HomeCountersService {
   getAll(): Observable<HomeCounterDTO[]>{
     return this.apiHomeCounters.getAll$();
   }
+
+  create(counter: HomeCounterDTO): Observable<any>{
+    return this.apiHomeCounters.create$(counter);
+  }
+
+  update(counter: HomeCounterDTO): Observable<any>{
+    return this.apiHomeCounters.update$(counter);
+  }
+
+  delete(id: number): Observable<any>{
+    return this.apiHomeCounters.delete$(id);
+  }
 }

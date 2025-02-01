@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <div class="w-100 d-flex justify-content-between align-items-start">
+    <h5>Удалить показания за {{selectedCounter.date_create | date: 'dd MMMM yyyy':':':'ru-RU'}}?</h5>
+    <button type="button"
+            class="btn-close"
+            (click)="onCloseDialog()">
+    </button>
+  </div>
+
+</div>
+<div class="modal-body p-0-my">
+  <div class="d-flex flex-column gap-2 overflow-auto ">
+    Удалить это?
+    <br>
+    {{selectedCounter | json}}
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button"
+          class="btn btn-danger"
+          (click)="onDeleteCounter()">Удалить</button>
+  <button type="button"
+          class="btn btn-outline-dark"
+          (click)="onCloseDialog()">Закрыть</button>
+</div>

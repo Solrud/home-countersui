@@ -15,9 +15,11 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { ShowSpinnerDirective } from './shared/spinner/show-spinner.directive';
 import {SpinnerInterceptor} from "./shared/spinner/spinner.interceptor";
 import { CounterDialogComponent } from './components/dialog/counter-dialog/counter-dialog.component';
-import {NgbDatepickerModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgbDateParserFormatter, NgbDatepickerModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {CustomDateParserFormatter} from "./shared/ngb-date-formatter/CustomDateParseFormatter";
+import { DeleteDialogComponent } from './components/dialog/delete-dialog/delete-dialog.component';
 
 registerLocaleData(localeRu, 'ru-RU');
 
@@ -29,7 +31,8 @@ registerLocaleData(localeRu, 'ru-RU');
     TableComponent,
     SpinnerComponent,
     ShowSpinnerDirective,
-    CounterDialogComponent
+    CounterDialogComponent,
+    DeleteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ registerLocaleData(localeRu, 'ru-RU');
     {
       provide: LOCALE_ID,
       useValue: 'ru-RU'
-    }
+    },
+    { provide: NgbDateParserFormatter, useClass: CustomDateParserFormatter },
   ],
   bootstrap: [AppComponent]
 })
