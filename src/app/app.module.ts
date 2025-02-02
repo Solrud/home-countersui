@@ -20,6 +20,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CustomDateParserFormatter} from "./shared/ngb-date-formatter/CustomDateParseFormatter";
 import { DeleteDialogComponent } from './components/dialog/delete-dialog/delete-dialog.component';
+import {AppRoutingModule} from "./app-routing.module";
+import { AuthComponent } from './pages/auth/auth.component';
 
 registerLocaleData(localeRu, 'ru-RU');
 
@@ -32,7 +34,8 @@ registerLocaleData(localeRu, 'ru-RU');
     SpinnerComponent,
     ShowSpinnerDirective,
     CounterDialogComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ registerLocaleData(localeRu, 'ru-RU');
     FormsModule,
     NgbModule,
     ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [
     {

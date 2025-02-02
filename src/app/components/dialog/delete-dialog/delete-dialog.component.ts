@@ -18,7 +18,6 @@ export class DeleteDialogComponent {
 
   onDeleteCounter(){
     this.homeCounterService.delete(this.selectedCounter.id).subscribe( result => {
-      console.log(result)
       if (result){
         this.activeModal.close(DialogResult.DELETE);
       }
