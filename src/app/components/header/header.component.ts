@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ThemeSwitchService} from "../../data/service/Theme-switch/theme-switch.service";
 
 @Component({
   selector: 'app-header',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  constructor(private themeSwitcherService: ThemeSwitchService) {
+  }
 
+  onClickSwitchTheme(){
+    this.themeSwitcherService.toggleTheme();
+  }
 }

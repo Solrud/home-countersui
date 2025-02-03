@@ -1,7 +1,7 @@
 .header-conf{
   display: flex;
   flex-direction: row;
-  background: var(--main-color);
+  background-color: var(--main-color);
   /*height: 350px;*/
   padding: 10px 10px;
 }
@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  background-color: #fcfcfc;
+  background-color: var(--white-greyer-color);
 }
 
 .add-counter-btn{
@@ -29,7 +29,7 @@
 
 .container-for-table {
   overflow: auto;
-  max-height: 60vh;
+  max-height: 65vh;
 }
 
 .btn-i{

@@ -18,6 +18,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   letter-sp
   --black-color: #000000;
   --black-permanent-color: #000000;
   --light-gray: #e7e8ea;
+  --white-greyer-color: #fcfcfc;
+  --greyer-white: #909090;
+
+  --striped-table-row: #f5f5f5;
+  --unstriped-table-row: #ffffff;
 }
 [data-theme='dark']{
   --container-width: 1300px;
@@ -30,6 +35,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   letter-sp
   --black-color: #ffffff;
   --black-permanent-color: #000000;
   --light-gray: #e7e8ea;
+  --white-greyer-color: #343434;
+  --greyer-white: #ffffff;
+
+  --striped-table-row: #7f7f7f;
+  --unstriped-table-row: #4e4e4e;
 }
 
 .pointer{
@@ -51,4 +61,8 @@ button[disabled]{
 }
 .bg-danger-my{
   background-color: #ff6363;
+}
+
+i, h1, h2, h3, h4, h5, span, p, label{
+  color: var(--black-color);
 }

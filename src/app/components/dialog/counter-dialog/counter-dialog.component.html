@@ -287,12 +287,14 @@
     <div class="d-flex justify-content-end">
       <span class=""></span>
       <form [formGroup]="fgCurrentHomeCounters"
-            class="me-3 mb-3">
+            class="px-3 mb-3 d-flex ">
+        <label for="dp" class="w-50 fs-6 align-self-center">Дата подачи</label>
         <div class="input-group">
           <input
-            class="form-control "
+            class="form-control"
             [class.form-control-sm]="fcSmall"
             placeholder="число.месяц.год"
+            id="dp"
             name="dp"
             formControlName="date_picked"
             ngbDatepicker

@@ -12,7 +12,8 @@ import {ToastService} from "../../data/service/Toast/toast.service";
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.css'],
+  host: {class: 'd-flex h-100 w-100 flex-column'}
 })
 export class MainComponent implements OnInit{
   fieldColumnList = FIELD_COLUMN_LIST;

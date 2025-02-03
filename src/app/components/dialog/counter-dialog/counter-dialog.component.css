@@ -2,10 +2,15 @@
   background-color: var(--main-color);
 }
 .modal-body{
-  background-color: #fcfcfc;
+  background-color: var(--white-greyer-color);
 }
 .modal-footer{
   background-color: var(--main-color);
+}
+
+input{
+  background-color: var(--white-color);
+  /*color: var(--black-color);*/
 }
 
 .modal-content{
