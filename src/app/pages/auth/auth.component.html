@@ -1,9 +1,23 @@
 <section class="w-100 vh-100 d-flex justify-content-center align-items-center">
   <div class="container-main d-flex flex-column">
     <div class="modal-header w-100 d-flex justify-content-center">
-        <span class="p-2 fs-6">Вход</span>
+        <span class="px-2 py-3 fs-6">Вход в управление счетчиками</span>
     </div>
-    <div class="modal-body">t</div>
-    <div class="modal-footer">y</div>
+    <div class="modal-body px-2">
+      <form [formGroup]="fgAuth">
+        <input type="password"
+               class="form-control form-control-sm"
+               id="password"
+               formControlName="password"
+               autocomplete="off"
+               placeholder="Введите пароль:">
+      </form>
+    </div>
+    <div class="modal-footer py-3 px-2">
+      <button class="btn btn-sm btn-primary"
+              [disabled]="fgAuth.invalid"
+              (keyup.enter)="onClickLogin()"
+              (click)="onClickLogin()">Войти</button>
+    </div>
   </div>
 </section>

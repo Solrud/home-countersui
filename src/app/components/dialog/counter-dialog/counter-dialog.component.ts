@@ -23,12 +23,14 @@ export class CounterDialogComponent implements OnInit {
   fgPreviousHomeCounters: FormGroup;
   fgDifferenceHomeCounters: FormGroup;
 
-  previousSumHWS: number;
-  previousSumCWS: number;
+  previousSumHWS: number = 0;
+  previousSumCWS: number = 0;
 
   newCounter: HomeCounterDTO;
 
   previousDate: Date;
+
+  fcSmall: boolean = false;
 
   constructor(private activeModal: NgbActiveModal,
               private homeCounterService: HomeCountersService) {
@@ -38,7 +40,6 @@ export class CounterDialogComponent implements OnInit {
     return DialogMode;
   }
 
-  //Получить идентификаторы обязательности заполнения поля
   fcFieldIsRequired(fg: FormGroup, fcName: string, returnBoolean: boolean = false): any {
     let fcRequired = fg.controls[fcName].hasValidator(Validators.required)
     return returnBoolean ? fcRequired : (fcRequired ? ' *' : '');
@@ -59,7 +60,6 @@ export class CounterDialogComponent implements OnInit {
     this._subscribeCurrent_453411();
     this._subscribeCurrent_T1();
     this._subscribeCurrent_T2();
-    this._subscribeDatePicked();
     this._subscribeCurrentSumHWS();
     this._subscribeCurrentSumCWS();
   }
@@ -143,18 +143,28 @@ export class CounterDialogComponent implements OnInit {
 
   getCorrectDifferenceValueFromField(field: string){
     if (this.dialogMode != DialogMode.CREATE){
+      if (field == 'difference_sumHWS'){
+        const current = this.fgCurrentHomeCounters.get('current_sumHWS').value;
+        const previous = this.fgPreviousHomeCounters.get('previous_sumHWS').value;
+        return current - previous;
+      }
+      if (field == 'difference_sumCWS'){
+        const current = this.fgCurrentHomeCounters.get('current_sumCWS').value;
+        const previous = this.fgPreviousHomeCounters.get('previous_sumCWS').value;
+        return current - previous;
+      }
       if (field != 'difference_sumHWS' && field != 'difference_sumCWS'){
         const current_counter = Number(this.fgCurrentHomeCounters.get(String('current_' + field)).value);
         const previous_counter = Number(this.fgPreviousHomeCounters.get(String('previous_' + field)).value);
         return current_counter - previous_counter;
       }
     }
+
     return 0;
   }
 
   initFgCurrentHomeCounters(){
     this.fgCurrentHomeCounters = new FormGroup({
-      // id_current: new FormControl({value: this.getCorrectValueFromField('id'), disabled: true}),
       current_453372: new FormControl({value: this.getCorrectCurrentValueFromField('counter_453372'), disabled: false}, Validators.required),
       current_446716: new FormControl({value: this.getCorrectCurrentValueFromField('counter_446716'), disabled: false}, Validators.required),
       current_8385287: new FormControl({value: this.getCorrectCurrentValueFromField('counter_8385287'), disabled: false}, Validators.required),
@@ -172,7 +182,6 @@ export class CounterDialogComponent implements OnInit {
 
   initFgPreviousHomeCounters() {
     this.fgPreviousHomeCounters = new FormGroup({
-      // id_previous: new FormControl({value: this.getCorrectValueFromField('id'), disabled: true}),
       previous_453372: new FormControl({value: this.getCorrectPreviousValueFromField('counter_453372'), disabled: true}),
       previous_446716: new FormControl({value: this.getCorrectPreviousValueFromField('counter_446716'), disabled: true}),
       previous_8385287: new FormControl({value: this.getCorrectPreviousValueFromField('counter_8385287'), disabled: true}),
@@ -251,11 +260,6 @@ export class CounterDialogComponent implements OnInit {
         this.fgDifferenceHomeCounters.get('difference_T2').setValue(difference);
     })
   }
-  _subscribeDatePicked(){
-    this.fgCurrentHomeCounters.controls['date_picked']
-      .valueChanges.subscribe( result => {
-    })
-  }
   changeValueCurrentSumHWS(){
     const current_446716 = this.fgCurrentHomeCounters.get('current_446716').value;
     const current_453411 = this.fgCurrentHomeCounters.get('current_453411').value;
@@ -272,10 +276,11 @@ export class CounterDialogComponent implements OnInit {
   }
 
   setValuePreviousCounters(){
-    const previous_453372CWS = this.lastCounter.counter_453372;
-    const previous_446716HWS = this.lastCounter.counter_446716;
-    const previous_8385287CWS = this.lastCounter.counter_8385287;
-    const previous_453411HWS = this.lastCounter.counter_453411;
+    const previousCounter = this.dialogMode === DialogMode.CREATE ? this.lastCounter : this.selectedCounter.previousCounter;
+    const previous_453372CWS = previousCounter.counter_453372;
+    const previous_446716HWS = previousCounter.counter_446716;
+    const previous_8385287CWS = previousCounter.counter_8385287;
+    const previous_453411HWS = previousCounter.counter_453411;
 
     const sumHWS = previous_453411HWS + previous_446716HWS;
     const sumCWS = previous_453372CWS + previous_8385287CWS;

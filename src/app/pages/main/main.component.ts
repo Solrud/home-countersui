@@ -7,6 +7,7 @@ import {OpenDialogService} from "../../data/service/OpenDialog/open-dialog.servi
 import {SelectedCounter} from "../../data/model/selectedCounter";
 import {DialogMode} from "../../components/dialog/dialog-mode.enum";
 import {DialogResult} from "../../components/dialog/dialog-result.enum";
+import {ToastService} from "../../data/service/Toast/toast.service";
 
 @Component({
   selector: 'app-main',
@@ -22,7 +23,8 @@ export class MainComponent implements OnInit{
   selectedCounter: SelectedCounter | null = null;
 
   constructor(private homeCounterService: HomeCountersService,
-              private openDialogService: OpenDialogService) {
+              private openDialogService: OpenDialogService,
+              private toastService: ToastService) {
   }
 
   ngOnInit() {
@@ -57,6 +59,7 @@ export class MainComponent implements OnInit{
       .closed
       .subscribe( result => {
         if (result === DialogResult.CREATE){
+          this.toastService.showPositive('Успешно создан счетчик');
           this.getAllCounters();
         }
     });
@@ -68,6 +71,7 @@ export class MainComponent implements OnInit{
       .closed
       .subscribe( result => {
         if (result === DialogResult.EDIT){
+          this.toastService.showPositive('Успешно изменен счетчик');
           this.getAllCounters();
         }
       });
@@ -78,6 +82,7 @@ export class MainComponent implements OnInit{
       .closed
       .subscribe( result => {
         if (result === DialogResult.DELETE){
+          this.toastService.showPositive('Успешно удален счетчик');
           this.getAllCounters();
         }
     })

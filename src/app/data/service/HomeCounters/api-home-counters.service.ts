@@ -12,22 +12,22 @@ export class ApiHomeCountersService {
 
   getAll$(): Observable<HomeCounterDTO[]>{
     return this.httpClient
-      .get<HomeCounterDTO[]>('/getallcounters');
+      .get<HomeCounterDTO[]>('/home-counters/getallcounters');
   }
 
   create$(counter: HomeCounterDTO): Observable<any>{
     return this.httpClient
-      .post<any>('/addnewcounter', counter);
+      .post<any>('/home-counters/addnewcounter', counter);
   }
 
   update$(counter: HomeCounterDTO): Observable<any>{
     return this.httpClient
-      .post('/updatecounter', counter);
+      .post('/home-counters/updatecounter', counter);
   }
 
   delete$(id: number): Observable<any>{
     return this.httpClient
-      .post<any>('/deletecounter', id)
+      .post<any>('/home-counters/deletecounter', id)
       .pipe(
         map( result => result.success)
       );

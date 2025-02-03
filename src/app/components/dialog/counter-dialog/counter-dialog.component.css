@@ -35,3 +35,7 @@
 button[disabled] {
   border: 0 !important;
 }
+.btn-close:focus {
+  outline: none; /* Убираем обводку */
+  box-shadow: none; /* Убираем тень */
+}

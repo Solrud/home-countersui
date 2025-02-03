@@ -1,9 +1,8 @@
 <div class="modal-header">
-  <div class="w-100 d-flex justify-content-between align-items-start">
+  <div class="w-100 d-flex justify-content-between align-items-start" (click)="fcSmall = !fcSmall">
     <h5 *ngIf="dialogMode === DialogMode.CREATE" class="text-center">Добавить новые показания счетчика</h5>
     <h5 *ngIf="dialogMode === DialogMode.EDIT" class="text-center">Изменить показания счетчика</h5>
-      <button type="button"
-              class="btn-close"
+      <button class="btn-close"
               (click)="onCloseDialog()"></button>
   </div>
 
@@ -21,6 +20,7 @@
         <input id="current_453372"
                class="form-control border-dark"
                type="number"
+               [class.form-control-sm]="fcSmall"
                autocomplete="off"
                formControlName='current_453372'
                [required]="fcFieldIsRequired(fgCurrentHomeCounters, 'current_453372', true)">
@@ -32,6 +32,7 @@
                formControlName='previous_453372'
                class="form-control border-dark"
                type="number"
+               [class.form-control-sm]="fcSmall"
                autocomplete="off">
       </form>
       <form [formGroup]="fgDifferenceHomeCounters"
@@ -41,6 +42,7 @@
                formControlName='difference_453372'
                class="form-control border-dark"
                type="number"
+               [class.form-control-sm]="fcSmall"
                autocomplete="off">
       </form>
     </div>
@@ -53,6 +55,7 @@
                [required]="fcFieldIsRequired(fgCurrentHomeCounters, 'current_446716', true)"
                class="form-control border-dark"
                type="number"
+               [class.form-control-sm]="fcSmall"
                autocomplete="off">
       </form>
       <form [formGroup]="fgPreviousHomeCounters"
@@ -62,6 +65,7 @@
                formControlName='previous_446716'
                class="form-control border-dark"
                type="number"
+               [class.form-control-sm]="fcSmall"
                autocomplete="off">
       </form>
       <form [formGroup]="fgDifferenceHomeCounters"
@@ -71,6 +75,7 @@
                formControlName='difference_446716'
                class="form-control border-dark"
                type="number"
+               [class.form-control-sm]="fcSmall"
                autocomplete="off">
       </form>
     </div>
@@ -83,6 +88,7 @@
                [required]="fcFieldIsRequired(fgCurrentHomeCounters, 'current_8385287', true)"
                class="form-control border-dark"
                type="number"
+               [class.form-control-sm]="fcSmall"
                autocomplete="off">
       </form>
       <form [formGroup]="fgPreviousHomeCounters"
@@ -92,6 +98,7 @@
                formControlName="previous_8385287"
                class="form-control border-dark"
                type="number"
+               [class.form-control-sm]="fcSmall"
                autocomplete="off">
       </form>
       <form [formGroup]="fgDifferenceHomeCounters" class="flex-grow-1">
@@ -100,6 +107,7 @@
                formControlName="difference_8385287"
                class="form-control border-dark"
                type="number"
+               [class.form-control-sm]="fcSmall"
                autocomplete="off">
       </form>
     </div>
@@ -112,6 +120,7 @@
                [required]="fcFieldIsRequired(fgCurrentHomeCounters, 'current_453411', true)"
                class="form-control border-dark"
                type="number"
+               [class.form-control-sm]="fcSmall"
                autocomplete="off">
       </form>
       <form [formGroup]="fgPreviousHomeCounters"
@@ -121,6 +130,7 @@
                formControlName="previous_453411"
                class="form-control border-dark"
                type="number"
+               [class.form-control-sm]="fcSmall"
                autocomplete="off">
       </form>
       <form [formGroup]="fgDifferenceHomeCounters"
@@ -130,6 +140,7 @@
                formControlName="difference_453411"
                class="form-control border-dark"
                type="number"
+               [class.form-control-sm]="fcSmall"
                autocomplete="off">
       </form>
     </div>
@@ -146,6 +157,7 @@
                  formControlName="current_sumHWS"
                  class="form-control border-dark"
                  type="number"
+                 [class.form-control-sm]="fcSmall"
                  autocomplete="off">
         </form>
         <form [formGroup]="fgPreviousHomeCounters"
@@ -155,6 +167,7 @@
                  formControlName="previous_sumHWS"
                  class="form-control border-dark"
                  type="number"
+                 [class.form-control-sm]="fcSmall"
                  autocomplete="off">
         </form>
         <form [formGroup]="fgDifferenceHomeCounters"
@@ -164,6 +177,7 @@
                  formControlName="difference_sumHWS"
                  class="form-control border-dark"
                  type="number"
+                 [class.form-control-sm]="fcSmall"
                  autocomplete="off">
         </form>
       </div>
@@ -175,6 +189,7 @@
                  formControlName="current_sumCWS"
                  class="form-control border-dark"
                  type="number"
+                 [class.form-control-sm]="fcSmall"
                  autocomplete="off">
         </form>
         <form [formGroup]="fgPreviousHomeCounters"
@@ -184,6 +199,7 @@
                  formControlName="previous_sumCWS"
                  class="form-control border-dark"
                  type="number"
+                 [class.form-control-sm]="fcSmall"
                  autocomplete="off">
         </form>
         <form [formGroup]="fgDifferenceHomeCounters"
@@ -193,6 +209,7 @@
                  formControlName="difference_sumCWS"
                  class="form-control border-dark"
                  type="number"
+                 [class.form-control-sm]="fcSmall"
                  autocomplete="off">
         </form>
       </div>
@@ -210,6 +227,7 @@
                [required]="fcFieldIsRequired(fgCurrentHomeCounters, 'current_T1', true)"
                class="form-control border-dark"
                type="number"
+               [class.form-control-sm]="fcSmall"
                autocomplete="off">
       </form>
       <form [formGroup]="fgPreviousHomeCounters"
@@ -219,6 +237,7 @@
                formControlName="previous_T1"
                class="form-control border-dark"
                type="number"
+               [class.form-control-sm]="fcSmall"
                autocomplete="off">
       </form>
       <form [formGroup]="fgDifferenceHomeCounters"
@@ -228,6 +247,7 @@
                formControlName="difference_T1"
                class="form-control border-dark"
                type="number"
+               [class.form-control-sm]="fcSmall"
                autocomplete="off">
       </form>
     </div>
@@ -240,6 +260,7 @@
                [required]="fcFieldIsRequired(fgCurrentHomeCounters, 'current_T2', true)"
                class="form-control border-dark"
                type="number"
+               [class.form-control-sm]="fcSmall"
                autocomplete="off">
       </form>
       <form [formGroup]="fgPreviousHomeCounters"
@@ -249,6 +270,7 @@
                formControlName="previous_T2"
                class="form-control border-dark"
                type="number"
+               [class.form-control-sm]="fcSmall"
                autocomplete="off">
       </form>
       <form [formGroup]="fgDifferenceHomeCounters"
@@ -258,6 +280,7 @@
                formControlName="difference_T2"
                class="form-control border-dark"
                type="number"
+               [class.form-control-sm]="fcSmall"
                autocomplete="off">
       </form>
     </div>
@@ -267,7 +290,8 @@
             class="me-3 mb-3">
         <div class="input-group">
           <input
-            class="form-control"
+            class="form-control "
+            [class.form-control-sm]="fcSmall"
             placeholder="число.месяц.год"
             name="dp"
             formControlName="date_picked"
@@ -288,13 +312,16 @@
           type="button"
           class="btn btn-primary"
           [disabled]="fgCurrentHomeCounters.invalid"
+          (keyup.enter)="onCreateCounter()"
           (click)="onCreateCounter()">Создать</button>
   <button *ngIf="dialogMode === DialogMode.EDIT"
           type="button"
           class="btn btn-primary"
           [disabled]="fgCurrentHomeCounters.invalid"
+          (keyup.enter)="onEditCounter()"
           (click)="onEditCounter()">Изменить</button>
   <button type="button"
           class="btn btn-outline-dark"
+          (keyup.escape)="onCloseDialog()"
           (click)="onCloseDialog()">Закрыть</button>
 </div>

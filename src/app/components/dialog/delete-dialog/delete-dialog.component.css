@@ -2,8 +2,8 @@
   background-color: var(--main-color);
 }
 .modal-body{
-  background-color: #fcfcfc;
+  background-color: var(--white-color);
 }
 .modal-footer{
-  background-color: var(--main-color);
+  background-color: var(--white-color);
 }

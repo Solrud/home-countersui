@@ -46,3 +46,9 @@ button[disabled]{
   border: #d0d9d0 4px solid !important;
 }
 
+.bg-success-my{
+  background-color: #3ebf53;
+}
+.bg-danger-my{
+  background-color: #ff6363;
+}

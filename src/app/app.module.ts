@@ -7,7 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { TableComponent } from './components/table/table.component';
 import {environment} from "../environment/environment";
 import {BASE_URL} from "./shared/base-url/base-url.constant";
-import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BaseUrlInterceptor} from "./shared/base-url/base-url.interceptor";
 import {registerLocaleData} from "@angular/common";
 import localeRu from '@angular/common/locales/ru';
@@ -22,6 +22,9 @@ import {CustomDateParserFormatter} from "./shared/ngb-date-formatter/CustomDateP
 import { DeleteDialogComponent } from './components/dialog/delete-dialog/delete-dialog.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { AuthComponent } from './pages/auth/auth.component';
+import {JwtModule} from "@auth0/angular-jwt";
+import {AuthInterceptor} from "./shared/base-url/auth.interceptor";
+import { ToastComponent } from './components/toast/toast.component';
 
 registerLocaleData(localeRu, 'ru-RU');
 
@@ -35,7 +38,8 @@ registerLocaleData(localeRu, 'ru-RU');
     ShowSpinnerDirective,
     CounterDialogComponent,
     DeleteDialogComponent,
-    AuthComponent
+    AuthComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,16 @@ registerLocaleData(localeRu, 'ru-RU');
     FormsModule,
     NgbModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('access_token');
+        },
+        allowedDomains: ['cg50261.tw1.ru'],
+        disallowedRoutes: ['cg50261.tw1.ru/api/login']
+      }
+    }),
   ],
   providers: [
     {
@@ -63,10 +76,18 @@ registerLocaleData(localeRu, 'ru-RU');
       useClass: SpinnerInterceptor
     },
     {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: AuthInterceptor
+    },
+    {
       provide: LOCALE_ID,
       useValue: 'ru-RU'
     },
-    { provide: NgbDateParserFormatter, useClass: CustomDateParserFormatter },
+    {
+      provide: NgbDateParserFormatter,
+      useClass: CustomDateParserFormatter
+    },
   ],
   bootstrap: [AppComponent]
 })

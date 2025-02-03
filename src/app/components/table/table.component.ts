@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {FIELD_NAME_OBJ} from "../../app.constant";
+import {FIELD_COLUMN_LIST, FIELD_NAME_OBJ} from "../../app.constant";
 import {SelectedCounter} from "../../data/model/selectedCounter";
 import {HomeCounterDTO} from "../../data/model/dto/implements/home-counter-dto";
 
@@ -14,7 +14,7 @@ export class TableComponent {
   selectedObject: any;
 
   @Input()
-  fieldColumnList = [];
+  fieldColumnList = FIELD_COLUMN_LIST;
   @Input()
   set dataTableSourceSet(value: any){
     this.dataTableSource = value;
