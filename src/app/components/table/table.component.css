@@ -1,5 +1,6 @@
 thead {
-  --bs-table-bg-type: #75cea7;
+  /*--bs-table-bg-type: #75cea7;*/
+  --bs-table-bg-type: var(--primary-color);
 }
 .striped-con{
   --bs-table-bg: var(--striped-table-row);
@@ -8,7 +9,7 @@ thead {
   --bs-table-bg: var(--unstriped-table-row);
 }
 .active-element{
-  --bs-table-bg-type: #b7efc6;
+  --bs-table-bg-type: var(--selected-row-table);
 }
 span{
   color: var(--black-color)

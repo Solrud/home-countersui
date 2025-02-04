@@ -34,7 +34,14 @@
 
 .btn-i{
   width: 80px;
-  height: 80px;
+  height: 74px;
+}
+
+.disabled-i{
+  color: #c9c9c9;
+}
+.undisabled-i{
+  /*color: var(--primary-color);*/
 }
 /*:host{*/
 /*  display: block;*/
@@ -68,5 +75,6 @@
   .container-btns{
     font-size: 12px;
     gap: 1rem;
+    margin: 0 0.5rem;
   }
 }

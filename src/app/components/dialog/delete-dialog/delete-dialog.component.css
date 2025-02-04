@@ -2,8 +2,11 @@
   background-color: var(--main-color);
 }
 .modal-body{
-  background-color: var(--white-color);
+  background-color: var(--white-greyer-color);
 }
 .modal-footer{
-  background-color: var(--white-color);
+  background-color: var(--white-greyer-color);
+}
+.bp{
+  /*color: var(--black-permanent-color) !important;*/
 }

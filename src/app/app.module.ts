@@ -25,6 +25,7 @@ import { AuthComponent } from './pages/auth/auth.component';
 import {JwtModule} from "@auth0/angular-jwt";
 import {AuthInterceptor} from "./shared/base-url/auth.interceptor";
 import { ToastComponent } from './components/toast/toast.component';
+import { OffcanvasComponent } from './components/offcanvas/offcanvas.component';
 
 registerLocaleData(localeRu, 'ru-RU');
 
@@ -39,7 +40,8 @@ registerLocaleData(localeRu, 'ru-RU');
     CounterDialogComponent,
     DeleteDialogComponent,
     AuthComponent,
-    ToastComponent
+    ToastComponent,
+    OffcanvasComponent
   ],
   imports: [
     BrowserModule,

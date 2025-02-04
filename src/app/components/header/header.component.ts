@@ -7,10 +7,4 @@ import {ThemeSwitchService} from "../../data/service/Theme-switch/theme-switch.s
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  constructor(private themeSwitcherService: ThemeSwitchService) {
-  }
-
-  onClickSwitchTheme(){
-    this.themeSwitcherService.toggleTheme();
-  }
 }

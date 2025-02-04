@@ -1,6 +1,6 @@
 <div class="modal-header">
   <div class="w-100 d-flex justify-content-between align-items-start">
-    <h5>Удалить показания за <span class="fw-bold">{{selectedCounter.date_create | date: 'dd MMMM yyyy':':':'ru-RU'}}</span>?</h5>
+    <h5 class="bp">Удалить показания за <span class="fw-bold bp">{{selectedCounter.date_create | date: 'dd MMMM yyyy':':':'ru-RU'}}</span>?</h5>
     <button type="button"
             class="btn-close"
             (click)="onCloseDialog()">
@@ -20,6 +20,6 @@
           class="btn btn-danger"
           (click)="onDeleteCounter()">Удалить</button>
   <button type="button"
-          class="btn btn-outline-dark"
+          class="btn btn-outline-primary"
           (click)="onCloseDialog()">Закрыть</button>
 </div>

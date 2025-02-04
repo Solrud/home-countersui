@@ -1,0 +1,13 @@
+:host{
+  width: 100%;
+  height: 100%;
+  background-color: var(--white-greyer-color);
+}
+.x-my{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.p-container{
+  padding-top: 5rem;
+}

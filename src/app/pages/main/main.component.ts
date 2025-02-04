@@ -8,6 +8,8 @@ import {SelectedCounter} from "../../data/model/selectedCounter";
 import {DialogMode} from "../../components/dialog/dialog-mode.enum";
 import {DialogResult} from "../../components/dialog/dialog-result.enum";
 import {ToastService} from "../../data/service/Toast/toast.service";
+import {NgbOffcanvas} from "@ng-bootstrap/ng-bootstrap";
+import {OffcanvasComponent} from "../../components/offcanvas/offcanvas.component";
 
 @Component({
   selector: 'app-main',
@@ -25,7 +27,8 @@ export class MainComponent implements OnInit{
 
   constructor(private homeCounterService: HomeCountersService,
               private openDialogService: OpenDialogService,
-              private toastService: ToastService) {
+              private toastService: ToastService,
+              private offcanvasService: NgbOffcanvas) {
   }
 
   ngOnInit() {
@@ -87,6 +90,15 @@ export class MainComponent implements OnInit{
           this.getAllCounters();
         }
     })
+  }
+
+  onOpenOffcanvas(){
+    this.offcanvasService.open(OffcanvasComponent,
+        {
+          position: 'end',
+          backdropClass: "bg-offcanvas",
+          panelClass: "off-canvas"
+        });
   }
 
   onSelectTableElement(counter: SelectedCounter){
