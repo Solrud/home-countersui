@@ -28,6 +28,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   letter-sp
   --greyer-white: #909090;
   --white-to-black-grey: #fff;
 
+  --disabled-form-control: #efefef;
+
   --striped-table-row: #f5f5f5;
   --unstriped-table-row: #ffffff;
   --selected-row-table: #b7dbef;
@@ -46,6 +48,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   letter-sp
   --white-greyer-color: #262626;
   --greyer-white: #ffffff;
   --white-to-black-grey: #151515;
+
+  --disabled-form-control: #262626;
 
   --striped-table-row: #5a5a5a;
   --unstriped-table-row: #4e4e4e;
@@ -80,7 +84,10 @@ i, h1, h2, h3, h4, h5, span, p, label{
   background-color: var(--white-to-black-grey) !important;
   color: var(--black-color) !important;
 }
-
+.form-control[disabled]{
+  background-color: var(--disabled-form-control) !important;
+  /*color: var(--black-color) !important;*/
+}
 
 /*OFF CANVAS*/
 .bg-offcanvas{
