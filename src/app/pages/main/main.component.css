@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: row;
   background-color: var(--main-color);
-  /*height: 350px;*/
   padding: 10px 10px;
 }
 .body-conf{
@@ -13,8 +12,6 @@
 }
 
 .add-counter-btn{
-  /*width: 200px;*/
-  /*height: 110px;*/
   border-radius: 15px;
   border: var(--main-color) 4px solid;
   display: flex;
@@ -28,8 +25,9 @@
 }
 
 .container-for-table {
-  overflow: auto;
-  max-height: 65vh;
+  overflow: auto !important;
+  display: flex;
+  flex-direction: column;
 }
 
 .btn-i{
@@ -41,16 +39,9 @@
   color: #c9c9c9;
 }
 .undisabled-i{
-  /*color: var(--primary-color);*/
+
 }
-/*:host{*/
-/*  display: block;*/
-/*  background-image: url('src/assets/imgs/low opacity h-c logo.png');*/
-/*  background-size: cover;*/
-/*  background-position: center;*/
-/*  background-repeat: no-repeat;*/
-/*  position: relative;*/
-/*}*/
+
 
 @media (max-width: 1300px){
   .container-btns{
@@ -60,21 +51,20 @@
     gap: 3rem;
   }
 
-  /*.container-btns{*/
-  /*  display: flex;*/
-  /*  gap: 0.5rem;*/
-  /*  padding: 0 0.5rem;*/
-  /*}*/
-  /*.add-counter-btn{*/
-  /*  width: auto;*/
-  /*  flex-grow: 1;*/
-  /*}*/
 }
 
 @media (max-width: 475px){
+  .bi{
+    font-size: 25px !important;
+  }
+
   .container-btns{
     font-size: 12px;
-    gap: 1rem;
+    gap: 0.5rem;
     margin: 0 0.5rem;
+  }
+
+  .btn-i{
+    height: 51px !important;
   }
 }

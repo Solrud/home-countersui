@@ -14,7 +14,9 @@ thead {
 span{
   color: var(--black-color)
 }
-
+.th-config{
+  margin-top: -1px !important;
+}
 
 .container-table{
   overflow: auto;

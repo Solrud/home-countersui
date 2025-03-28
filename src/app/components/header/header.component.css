@@ -11,5 +11,6 @@
 }
 
 span{
-  color: var(--black-permanent-color) !important;
+  color: var(--black-color) !important;
 }
+

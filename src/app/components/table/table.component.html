@@ -1,16 +1,16 @@
 <div *ngIf="fieldColumnList.length > 0"
-     class="overflow-auto" >
+     class="overflow-auto d-flex" >
   <table  *ngIf="isDataSourceFull()"
-  class="table table-bordered table-responsive table-sm " >
-    <thead class="sticky-top">
+  class="table table-bordered table-responsive table-sm overflow-auto" >
+    <thead>
     <tr class="sticky-top border-top-0">
-      <th class="text-nowrap"
+      <th class="text-nowrap th-config"
           *ngFor="let field of fieldColumnList">
         {{getNameField(field)}}
       </th>
     </tr>
     </thead>
-    <tbody class="">
+    <tbody class="overflow-auto">
     <ng-container>
       <tr *ngFor="let data of dataTableSource; index as i"
           (click)="onSelectTableElement(i)"

@@ -92,6 +92,10 @@ export class MainComponent implements OnInit{
     })
   }
 
+  exportExcelCounterTable(){
+
+  }
+
   onOpenOffcanvas(){
     this.offcanvasService.open(OffcanvasComponent,
         {

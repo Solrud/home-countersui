@@ -2,7 +2,7 @@
   <div class="w-100 d-flex justify-content-between align-items-start" (click)="fcSmall = !fcSmall">
     <h5 *ngIf="dialogMode === DialogMode.CREATE" class="text-center">Добавить новые показания счетчика</h5>
     <h5 *ngIf="dialogMode === DialogMode.EDIT" class="text-center">Изменить показания счетчика</h5>
-      <button class="btn-close"
+      <button class="btn-close close-btn-config"
               (click)="onCloseDialog()"></button>
   </div>
 
@@ -323,7 +323,7 @@
           (keyup.enter)="onEditCounter()"
           (click)="onEditCounter()">Изменить</button>
   <button type="button"
-          class="btn btn-outline-dark"
+          class="btn btn-outline-dark close-btn-config"
           (keyup.escape)="onCloseDialog()"
           (click)="onCloseDialog()">Закрыть</button>
 </div>

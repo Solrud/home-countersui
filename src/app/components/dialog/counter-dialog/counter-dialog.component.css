@@ -47,3 +47,8 @@ button[disabled] {
   outline: none; /* Убираем обводку */
   box-shadow: none; /* Убираем тень */
 }
+
+.close-btn-config{
+  color: var(--black-color) !important;
+  border-color: var(--black-color) !important;
+}

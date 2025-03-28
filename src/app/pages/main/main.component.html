@@ -1,5 +1,5 @@
 <app-header class="header-conf"></app-header>
-<section class="body-conf w-100 bg-logo-main">
+<section class="body-conf w-100 bg-logo-main overflow-auto">
   <div class="container-my d-flex flex-column">
     <div class="container-btns">
       <button class="btn fw-bold add-counter-btn my-3 btn-i"
@@ -24,12 +24,20 @@
            class="fs-1  bi bi-file-earmark-x"></i>
       </button>
       <button class="fw-bold add-counter-btn my-3 btn-i"
+              [disabled]="!selectedCounter"
+              (click)="exportExcelCounterTable()">
+        <i  [class.disabled-i]="!selectedCounter"
+            [class.undisabled-i]="selectedCounter"
+            class="fs-1  bi bi-download"></i>
+      </button>
+      <button class="fw-bold add-counter-btn my-3 btn-i"
               (click)="onOpenOffcanvas()">
         <i class="fs-1 bi bi-gear-wide-connected"></i>
       </button>
     </div>
     <div class="container-for-table">
-      <app-table [fieldColumnList]="fieldColumnList"
+      <app-table class="overflow-auto d-flex flex-column"
+                 [fieldColumnList]="fieldColumnList"
                  [dataTableSourceSet]="dataTable"
 
                  (selectedObjectOutput)="onSelectTableElement($event)"></app-table>

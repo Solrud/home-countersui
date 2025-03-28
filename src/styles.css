@@ -37,8 +37,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   letter-sp
 [data-theme='dark']{
   --container-width: 1300px;
 
-  --main-color: #588dc9;
-  --primary-color: #727bd4;
+  --main-color: #244c94;
+  --primary-color: #5e7fd0;
   --third-color: #37729c;
   --white-color: #000000;
   --white-permanent-color: #fff;
@@ -51,8 +51,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   letter-sp
 
   --disabled-form-control: #262626;
 
-  --striped-table-row: #5a5a5a;
-  --unstriped-table-row: #4e4e4e;
+  --striped-table-row: #464646;
+  --unstriped-table-row: #3b3b3b;
   --selected-row-table: #4e7992;
 }
 
@@ -64,6 +64,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   letter-sp
   width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
+  overflow: auto;
 }
 
 button[disabled]{
