@@ -67,6 +67,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   letter-sp
   overflow: auto;
 }
 
+.bg-main{
+  background-color: var(--white-greyer-color) !important;
+}
+
 button[disabled]{
   border: #d0d9d0 4px solid !important;
 }
