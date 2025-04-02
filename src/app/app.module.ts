@@ -60,7 +60,7 @@ registerLocaleData(localeRu, 'ru-RU');
         allowedDomains: ['cg50261.tw1.ru'],
         disallowedRoutes: ['cg50261.tw1.ru/api/login']
       }
-    }),
+    })
   ],
   providers: [
     {

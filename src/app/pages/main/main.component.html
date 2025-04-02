@@ -23,7 +23,7 @@
             [class.undisabled-i]="selectedCounter"
            class="fs-1  bi bi-file-earmark-x"></i>
       </button>
-      <button class="fw-bold add-counter-btn my-3 btn-i"
+      <button class="fw-bold add-counter-btn my-3 btn-i xlsx-btn"
               [disabled]="!selectedCounter"
               (click)="exportExcelCounterTable()">
         <i  [class.disabled-i]="!selectedCounter"
@@ -40,7 +40,8 @@
                  [fieldColumnList]="fieldColumnList"
                  [dataTableSourceSet]="dataTable"
 
-                 (selectedObjectOutput)="onSelectTableElement($event)"></app-table>
+                 (selectedObjectOutput)="onSelectTableElement($event)"
+                 (dblSelectedObjectOutput)="onDblSelectTableElement($event)"></app-table>
     </div>
 
     <span *ngIf="errorMsg" class="m-3 text-warning-emphasis">{{errorMsg}}</span>

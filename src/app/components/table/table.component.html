@@ -14,6 +14,7 @@
     <ng-container>
       <tr *ngFor="let data of dataTableSource; index as i"
           (click)="onSelectTableElement(i)"
+          (dblclick)="onSelectTableElement(i, true)"
           [class.striped-con]="i % 2 == 0"
           [class.unstriped-con]="i % 2 == 1"
           [class.active-element]="data?.id == selectedObject?.id">
