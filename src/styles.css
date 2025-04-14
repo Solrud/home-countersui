@@ -19,6 +19,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   letter-sp
   --main-color: #87bdfa;
   --primary-color: #9da8ff;
   --third-color: #d3ecff;
+  --xlsx-color: #6fe56a;
   --white-color: #fff;
   --white-permanent-color: #fff;
   --black-color: #000000;
@@ -40,6 +41,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   letter-sp
   --main-color: #244c94;
   --primary-color: #5e7fd0;
   --third-color: #37729c;
+  --xlsx-color: #3db038;
   --white-color: #000000;
   --white-permanent-color: #fff;
   --black-color: #ffffff;

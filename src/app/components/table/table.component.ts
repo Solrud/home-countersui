@@ -1,16 +1,15 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FIELD_COLUMN_LIST, FIELD_NAME_OBJ} from "../../app.constant";
 import {SelectedCounter} from "../../data/model/selectedCounter";
-import {HomeCounterDTO} from "../../data/model/dto/implements/home-counter-dto";
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent {
+export class TableComponent{
   fieldColumnNameObject = FIELD_NAME_OBJ;
-  dataTableSource: any;
+  dataTableSource: any = [];
   selectedObject: any;
 
   @Input()
@@ -22,7 +21,9 @@ export class TableComponent {
   }
 
   @Output()
-  selectedObjectOutput = new EventEmitter<any>();
+  selectedObjectOutput = new EventEmitter<SelectedCounter>();
+  @Output()
+  dblSelectedObjectOutput = new EventEmitter<SelectedCounter>();
 
   isDataSourceFull(): boolean{
     let result = false;
@@ -35,23 +36,18 @@ export class TableComponent {
     return this.fieldColumnNameObject[field];
   }
 
-  onSelectTableElement(index: number): void{
+  onSelectTableElement(index: number, isDbl = false): void{
     const selectedElement = this.dataTableSource[index];
     let previousElement = null;
     if (this.dataTableSource[index + 1])
       previousElement = this.dataTableSource[index + 1];
 
     let selectedObj = new SelectedCounter();
+    selectedObj.selectedCounter = selectedElement;
+    selectedObj.previousCounter = previousElement;
+    this.selectedObject = selectedElement;
 
-    if (this.selectedObject != selectedElement){
-      selectedObj.selectedCounter = selectedElement;
-      selectedObj.previousCounter = previousElement;
-      this.selectedObject = selectedElement;
-    } else {
-      this.selectedObject = null;
-      selectedObj = null;
-    }
-
-    this.selectedObjectOutput.emit(selectedObj);
+    if (isDbl) this.dblSelectedObjectOutput.emit(selectedObj);
+    if (!isDbl) this.selectedObjectOutput.emit(selectedObj);
   }
 }

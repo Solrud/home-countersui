@@ -1,7 +1,8 @@
 <div class="modal-header pb-1">
   <div class="w-100 d-flex justify-content-center align-items-start" (click)="fcSmall = !fcSmall">
     <h5 *ngIf="dialogMode === DialogMode.CREATE" class="text-center">Добавить новые показания счетчика</h5>
-    <h5 *ngIf="dialogMode === DialogMode.EDIT" class="text-center">Изменить показания счетчика</h5>
+    <h5 *ngIf="dialogMode === DialogMode.EDIT" class="text-center">Изменить показания счетчика за {{ selectedCounter.selectedCounter.date_create | date: 'dd.MM.yyyy'}}</h5>
+    <h5 *ngIf="dialogMode === DialogMode.VIEW" class="text-center">Показания счетчика за {{ selectedCounter.selectedCounter.date_create | date: 'dd.MM.yyyy'}}</h5>
   </div>
 
 </div>

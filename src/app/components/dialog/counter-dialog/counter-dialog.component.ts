@@ -6,6 +6,7 @@ import {SelectedCounter} from "../../../data/model/selectedCounter";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {HomeCountersService} from "../../../data/service/HomeCounters/home-counters.service";
 import {DialogResult} from "../dialog-result.enum";
+import {formatDate} from 'src/app/shared/date_formatter/date_formatter_function';
 
 @Component({
   selector: 'app-counter',
@@ -165,18 +166,18 @@ export class CounterDialogComponent implements OnInit {
 
   initFgCurrentHomeCounters(){
     this.fgCurrentHomeCounters = new FormGroup({
-      current_453372: new FormControl({value: this.getCorrectCurrentValueFromField('counter_453372'), disabled: false}, Validators.required),
-      current_446716: new FormControl({value: this.getCorrectCurrentValueFromField('counter_446716'), disabled: false}, Validators.required),
-      current_8385287: new FormControl({value: this.getCorrectCurrentValueFromField('counter_8385287'), disabled: false}, Validators.required),
-      current_453411: new FormControl({value: this.getCorrectCurrentValueFromField('counter_453411'), disabled: false}, Validators.required),
+      current_453372: new FormControl({value: this.getCorrectCurrentValueFromField('counter_453372'), disabled: this.dialogMode === DialogMode.VIEW}, Validators.required),
+      current_446716: new FormControl({value: this.getCorrectCurrentValueFromField('counter_446716'), disabled: this.dialogMode === DialogMode.VIEW}, Validators.required),
+      current_8385287: new FormControl({value: this.getCorrectCurrentValueFromField('counter_8385287'), disabled: this.dialogMode === DialogMode.VIEW}, Validators.required),
+      current_453411: new FormControl({value: this.getCorrectCurrentValueFromField('counter_453411'), disabled: this.dialogMode === DialogMode.VIEW}, Validators.required),
 
       current_sumHWS: new FormControl({value: this.getCorrectCurrentValueFromField('current_sumHWS'), disabled: true}),
       current_sumCWS: new FormControl({value: this.getCorrectCurrentValueFromField('current_sumCWS'), disabled: true}),
 
-      current_T1: new FormControl({value: this.getCorrectCurrentValueFromField('counter_T1'), disabled: false}, Validators.required),
-      current_T2: new FormControl({value: this.getCorrectCurrentValueFromField('counter_T2'), disabled: false}, Validators.required),
+      current_T1: new FormControl({value: this.getCorrectCurrentValueFromField('counter_T1'), disabled: this.dialogMode === DialogMode.VIEW}, Validators.required),
+      current_T2: new FormControl({value: this.getCorrectCurrentValueFromField('counter_T2'), disabled: this.dialogMode === DialogMode.VIEW}, Validators.required),
 
-      date_picked: new FormControl({value: this.getCorrectCurrentValueFromField('date_picked'), disabled: false}, Validators.required)
+      date_picked: new FormControl({value: this.getCorrectCurrentValueFromField('date_picked'), disabled: this.dialogMode === DialogMode.VIEW}, Validators.required)
     })
   }
 
@@ -308,35 +309,6 @@ export class CounterDialogComponent implements OnInit {
     })
   }
 
-  formatDate(formatFor: string, date: Date = new Date()): string {
-    let pickedDate;
-    let month;
-    let year;
-    let day;
-    if (formatFor === 'create'){
-      pickedDate = this.fgCurrentHomeCounters.get('date_picked').value;
-      year = String(pickedDate.year);
-      month = String(pickedDate.month).length == 1 ?
-        '0' + String(pickedDate.month) :
-        String(pickedDate.month);
-      day = String(pickedDate.day).length == 1 ?
-        '0' + String(pickedDate.day) :
-        String(pickedDate.day);
-    }
-    if (formatFor === 'edit'){
-      year = String(date.getFullYear());
-      month = String(date.getMonth() + 1).length === 1 ?
-        '0' + String(date.getMonth() + 1): String(date.getMonth() + 1)
-      day = String(date.getDate()).length === 1 ?
-        '0' + String(date.getDate()): String(date.getDate())
-    }
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-    const seconds = String(date.getSeconds()).padStart(2, '0');
-
-    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-  }
-
   updateNewCounter(){
     this.newCounter = new HomeCounterDTO();
     this.newCounter.id = this.dialogMode === DialogMode.CREATE ?
@@ -347,8 +319,8 @@ export class CounterDialogComponent implements OnInit {
     this.newCounter.counter_453411 = this.fgCurrentHomeCounters.get('current_453411').value;
     this.newCounter.counter_T1 = this.fgCurrentHomeCounters.get('current_T1').value;
     this.newCounter.counter_T2 = this.fgCurrentHomeCounters.get('current_T2').value;
-    this.newCounter.date_create = this.formatDate('create');
-    this.newCounter.date_edit = this.formatDate('edit');
+    this.newCounter.date_create = formatDate('create', new Date(), this.fgCurrentHomeCounters.get('date_picked').value);
+    this.newCounter.date_edit = formatDate('edit');
   }
 
   onEditCounter(){
