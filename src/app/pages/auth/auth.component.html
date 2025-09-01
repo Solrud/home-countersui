@@ -6,17 +6,17 @@
     <div class="modal-body px-2">
       <form [formGroup]="fgAuth">
         <input type="password"
-               class="form-control form-control-sm"
+               class="form-control form-control-sm test"
                id="password"
                formControlName="password"
                autocomplete="off"
-               placeholder="Введите пароль:">
+               placeholder="Введите пароль:"
+               (keyup.enter)="onClickLogin()">
       </form>
     </div>
     <div class="modal-footer py-3 px-2">
       <button class="btn btn-sm btn-primary"
               [disabled]="fgAuth.invalid"
-              (keyup.enter)="onClickLogin()"
               (click)="onClickLogin()">Войти</button>
     </div>
   </div>

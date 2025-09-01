@@ -52,3 +52,6 @@ button[disabled] {
   color: var(--black-color) !important;
   border-color: var(--black-color) !important;
 }
+.close-btn-config:hover{
+  background-color: var(--white-to-black-grey);
+}

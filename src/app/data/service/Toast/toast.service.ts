@@ -11,7 +11,7 @@ export class ToastService {
   }
 
   showPositive(textOrTpl: string | TemplateRef<any>) {
-    this.toastList.push({ textOrTpl, classname: 'bg-success-my text-light', delay: 3500, autoHide: true});
+    this.toastList.push({ textOrTpl, classname: 'bg-primary text-light', delay: 3500, autoHide: true});
   }
 
   showWarning(textOrTpl: string | TemplateRef<any>) {

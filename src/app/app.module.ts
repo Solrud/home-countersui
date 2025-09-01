@@ -9,7 +9,7 @@ import {environment} from "../environment/environment";
 import {BASE_URL} from "./shared/base-url/base-url.constant";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BaseUrlInterceptor} from "./shared/base-url/base-url.interceptor";
-import {registerLocaleData} from "@angular/common";
+import {DatePipe, registerLocaleData} from "@angular/common";
 import localeRu from '@angular/common/locales/ru';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { ShowSpinnerDirective } from './shared/spinner/show-spinner.directive';
@@ -90,6 +90,7 @@ registerLocaleData(localeRu, 'ru-RU');
       provide: NgbDateParserFormatter,
       useClass: CustomDateParserFormatter
     },
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

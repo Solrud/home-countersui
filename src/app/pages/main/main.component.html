@@ -25,18 +25,18 @@
       </button>
       <button class="fw-bold add-counter-btn my-3 btn-i xlsx-btn"
               [disabled]="!selectedCounter"
-              (click)="exportExcelCounterTable()">
+              (click)="onClickExportExcelCounterTable()">
         <i  [class.disabled-i]="!selectedCounter"
             [class.undisabled-i]="selectedCounter"
             class="fs-1  bi bi-download"></i>
       </button>
       <button class="fw-bold add-counter-btn my-3 btn-i"
-              (click)="onOpenOffcanvas()">
-        <i class="fs-1 bi bi-gear-wide-connected"></i>
+              (click)="onClickSwitchTheme()">
+        <i class="fs-1 bi bi-noise-reduction"></i>
       </button>
     </div>
     <div class="container-for-table">
-      <app-table class="overflow-auto d-flex flex-column"
+      <app-table class="overflow-auto d-flex flex-column scrollbar-blue"
                  [fieldColumnList]="fieldColumnList"
                  [dataTableSourceSet]="dataTable"
 

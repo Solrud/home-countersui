@@ -17,7 +17,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   letter-sp
   --container-width: 1300px;
 
   --main-color: #87bdfa;
-  --primary-color: #9da8ff;
+  --primary-color: #9dbfff;
   --third-color: #d3ecff;
   --xlsx-color: #6fe56a;
   --white-color: #fff;
@@ -34,12 +34,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   letter-sp
   --striped-table-row: #f5f5f5;
   --unstriped-table-row: #ffffff;
   --selected-row-table: #b7dbef;
+
+  --scrollbar-bg: #eeee;
 }
 [data-theme='dark']{
   --container-width: 1300px;
 
   --main-color: #244c94;
-  --primary-color: #5e7fd0;
+  --primary-color: #678ade;
   --third-color: #37729c;
   --xlsx-color: #3db038;
   --white-color: #000000;
@@ -47,15 +49,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   letter-sp
   --black-color: #ffffff;
   --black-permanent-color: #000000;
   --light-gray: #e7e8ea;
-  --white-greyer-color: #262626;
+  --white-greyer-color: #2a2d34;
   --greyer-white: #ffffff;
   --white-to-black-grey: #151515;
 
   --disabled-form-control: #262626;
 
-  --striped-table-row: #464646;
-  --unstriped-table-row: #3b3b3b;
+  --striped-table-row: #434446;
+  --unstriped-table-row: #35363a;
   --selected-row-table: #4e7992;
+
+  --scrollbar-bg: rgba(89, 89, 89, 0.93);
 }
 
 .pointer{
@@ -114,3 +118,24 @@ i, h1, h2, h3, h4, h5, span, p, label{
     background-color: var(--white-greyer-color);
   }
 }
+
+/*СКРОЛЛБАР*/
+.scrollbar-blue, .modal {
+  /*overflow-y: scroll;*/
+}
+
+.scrollbar-blue::-webkit-scrollbar, .modal::-webkit-scrollbar {
+  width: 5px;
+  height: 6px;
+}
+
+.scrollbar-blue::-webkit-scrollbar-track, .modal::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color:var(--scrollbar-bg);
+}
+
+.scrollbar-blue::-webkit-scrollbar-thumb, .modal::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: var(--main-color);
+}
+
